@@ -1,11 +1,13 @@
-keypair_name                =
-instance_type_master        = 
-instance_type               = 
-control_plane_instance_name = 
-region                      = "us-east-1"
-number_of_workers           = 
-include_policy_ebs_csi_driver      = false
-include                     = ["docker", "cri-docker", "etcd" , "helm", "ebs-csi-driver", "argocd"]
+cluster_name                = "cluster2"
+keypair_name                = "cluster2_key"
+instance_type_master        = "t3.small"
+instance_type               = "t3.small"
+control_plane_instance_name = "master"
+worker_name                 = "worker"
+region                      = "ap-northeast-2"
+number_of_workers           = "2"
+include_policy_ebs_csi_driver      = true
+include                     = ["ebs-csi-driver"]
 # docker, cri-docker: config kubernetes cluster with docker (> v1.24). without this tag, containerd will be used
 # etcd              : etcd client to communicate with etcd
 # helm              : include helm

@@ -210,4 +210,5 @@ resource "aws_ssm_parameter" "join_k8s_cluster_cmd" {
   name  = "join_command"
   type  = "String"
   value = "NULL"
+  overwrite = true
 }

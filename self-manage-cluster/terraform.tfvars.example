@@ -1,11 +1,11 @@
-cluster_name                = "cluster2"
-keypair_name                = "cluster2_key"
+cluster_name                = "sep"
+keypair_name                = "september-key"
 instance_type_master        = "t3.small"
-instance_type               = "t3.small"
+instance_type               = "t3.medium"
 control_plane_instance_name = "master"
 worker_name                 = "worker"
-region                      = "ap-northeast-2"
-number_of_workers           = "2"
+region                      = "ap-southeast-1"
+number_of_workers           = "3"
 include_policy_ebs_csi_driver      = true
 include                     = ["ebs-csi-driver"]
 # docker, cri-docker: config kubernetes cluster with docker (> v1.24). without this tag, containerd will be used

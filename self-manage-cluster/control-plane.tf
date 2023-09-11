@@ -80,13 +80,13 @@ module "control_plane" {
 
 module "public_ssh_http" {
   source       = "../module/common_sg"
-  name_suffix  = "control_plane_sg"
+  name_suffix  = "${local.cluster_name}_control_plane_sg"
   public_ports = ["80", "22"]
 }
 
 module "k8s_public_sg" {
   source      = "../module/common_sg"
-  name_suffix = "k8s_public"
+  name_suffix = "${local.cluster_name}_k8s_public"
   rules = [{
     from_port   = "30000"
     to_port     = "33000"
@@ -96,7 +96,7 @@ module "k8s_public_sg" {
 
 module "k8s_cluster_sg" {
   source      = "../module/common_sg"
-  name_suffix = "k8s_cluster"
+  name_suffix = "${local.cluster_name}_k8s_cluster"
   rules = [{
     port        = "6443"
     cidr_blocks = ["172.31.0.0/16"]
@@ -127,7 +127,7 @@ module "k8s_cluster_sg" {
 
 module "k8s_cluster_worker_sg" {
   source      = "../module/common_sg"
-  name_suffix = "k8s_cluster_inside"
+  name_suffix = "${local.cluster_name}_k8s_cluster_inside"
   rules = [{
     from_port   = "0"
     to_port     = "63000"
